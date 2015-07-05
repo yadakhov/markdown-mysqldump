@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\MysqlDump;
+use App\InformationSchema;
 use Illuminate\Console\Command;
 
 class DumpListTables extends Command
@@ -38,7 +38,7 @@ class DumpListTables extends Command
      */
     public function handle()
     {
-        $tables = MysqlDump::getTables();
+        $tables = InformationSchema::getTables();
 
         foreach ($tables as $table) {
             $this->info($table->TABLE_NAME);

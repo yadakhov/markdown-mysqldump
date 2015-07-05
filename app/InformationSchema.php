@@ -5,11 +5,11 @@ namespace App;
 use DB;
 use Illuminate\Database\Eloquent\Model;
 
-class MysqlDump extends Model
+class InformationSchema extends Model
 {
     public static function getTables()
     {
-        $sql = 'select * from information_schema.tables where table_schema = ?';
+        $sql = 'SELECT * FROM information_schema.tables WHERE table_schema = ?';
 
         return DB::select($sql, [env('DB_DATABASE')]);
     }
