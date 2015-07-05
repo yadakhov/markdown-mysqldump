@@ -45,7 +45,7 @@ class DumpTables extends Command
 
             $file = storage_path('../schema/'.$table.'.md');
 
-            file_put_contents($file, "```php".PHP_EOL.$schema."```".PHP_EOL);
+            file_put_contents($file, "```sql".PHP_EOL.$schema."```".PHP_EOL);
 
             // write mark down file
             $this->info('Wrote file: '.$file);

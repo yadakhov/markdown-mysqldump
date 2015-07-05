@@ -1,4 +1,4 @@
-```php
+```sql
 CREATE TABLE `wp_maxbuttons_buttons` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(100) COLLATE latin1_general_ci DEFAULT NULL,
