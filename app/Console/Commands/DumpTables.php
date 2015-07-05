@@ -43,8 +43,12 @@ class DumpTables extends Command
         foreach ($tables as $table) {
             $schema = InformationSchema::showCreateTable($table);
 
+            $file = storage_path('../schema/'.$table.'.md');
+
+            file_put_contents($file, "```php".PHP_EOL.$schema."```".PHP_EOL);
+
             // write mark down file
-            $this->info($schema);
+            $this->info('Wrote file: '.$file);
         }
     }
 }
