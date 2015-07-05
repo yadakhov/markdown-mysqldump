@@ -5,21 +5,21 @@ namespace App\Console\Commands;
 use App\InformationSchema;
 use Illuminate\Console\Command;
 
-class DumpListTables extends Command
+class DumpTables extends Command
 {
     /**
      * The name and signature of the console command.
      *
      * @var string
      */
-    protected $signature = 'dump:list-tables';
+    protected $signature = 'dump:tables';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'List all the tables.';
+    protected $description = 'Dump all tables into markdown.';
 
     /**
      * Create a new command instance.
@@ -41,7 +41,10 @@ class DumpListTables extends Command
         $tables = InformationSchema::getTables();
 
         foreach ($tables as $table) {
-            $this->info($table);
+            $schema = InformationSchema::showCreateTable($table);
+
+            // write mark down file
+            $this->info($schema);
         }
     }
 }
