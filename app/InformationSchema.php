@@ -7,6 +7,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class InformationSchema extends Model
 {
+    /**
+     * Get all the tables in the database
+     *
+     * @return array
+     */
     public static function getTables()
     {
         $sql = 'SELECT * FROM information_schema.tables WHERE table_schema = ?';
@@ -22,6 +27,12 @@ class InformationSchema extends Model
         return $out;
     }
 
+    /**
+     * Show create table
+     *
+     * @param $table
+     * @return string
+     */
     public static function showCreateTable($table)
     {
         $sql = 'SHOW CREATE TABLE '.$table;
